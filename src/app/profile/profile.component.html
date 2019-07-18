@@ -1,0 +1,183 @@
+<!-- Company Logo Starts -->
+<br><br>
+<div class="text-center">
+    <img src="./assets/download.png" style="height:90px; width:100px;" alt="Company Logo"><br><br>
+
+<br/>
+
+<!-- Company Logo Ends -->
+
+
+<!-- Personal Details Start-->
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="row col-lg-8">
+    <h4 class="col-sm-4">Personal Details:</h4>
+    <h3 class="text-danger col-md-8">{{personalerrormessage}}</h3>
+    <br><br>
+    <div class="form-group col-md-6">
+      <label for="firstname">First Name</label>
+      <input disabled type="text" class="form-control" id="firstname" [(ngModel)]="firstname" placeholder="Enter First Name" minlength="3" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastname">Last Name</label>
+      <input disabled type="text" class="form-control" id="lastname" [(ngModel)]="lastname" placeholder="Enter Last Name" minlength="3" required>
+    </div>
+    <div class="form-group col-md-8">
+      <label for="fathername">Father's Name</label>
+      <input type="text" class="form-control" id="fathername" [(ngModel)]="fathername" name="fathername" placeholder="Enter Father's Name" minlength="3" required>
+    </div>
+    <div class="form-group col-md-5">
+      <label for="phonenumber">Mobile Number</label>
+      <input type="text" class="form-control" id="phonennumber" [(ngModel)]="mobilenumber" name="phonenumber" placeholder="Enter Phone Number" minlength="10" maxlength="10" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" [(ngModel)]="gender" class="form-control" required>
+          <option value="null" selected disabled>Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="others">Others</option>
+      </select>
+    </div>
+    <div class="form-group col-md-5">
+      <label for="natinality">Nationality</label>
+      <select id="nationality" [(ngModel)]="nationality" name="nationality" class="form-control" required>
+          <option value="null" selected disabled>Select</option>
+          <option *ngFor="let value of country_data.nationality" value="{{value}}">{{value}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="country">Country</label>
+      <select id="country" name="country" [(ngModel)]="country" class="form-control" required>
+          <option value="null" selected disabled>Select</option>
+          <option *ngFor="let value of country_data.countries" value="{{value}}">{{value}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="state">State</label>
+      <input type="text" class="form-control" [(ngModel)]="state" id="state" name="state" placeholder="Enter State" maxlength="30" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="city">City</label>
+      <input type="text" class="form-control" [(ngModel)]="city" id="city" name="city" placeholder="Enter City" required>
+      <br>
+    </div>
+    <div class="row">
+      <div class="col">
+          <button (click)="onSubmitPersonalDetails()"  class="btn btn-primary form-control">Save</button>
+      </div>
+      <div class="col">
+          <button (click)="OnUpdatePersonalDetails()"  class="btn btn-primary form-control">update</button>
+      </div>
+    </div>
+  </div>  
+  <div class="col-lg-3"></div>
+</div>
+
+<!-- Personal Details End -->
+<br>
+<br>
+<!-- Educational Details Start -->
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="row col-lg-8">
+    <h4 class="col-md-6">Education Background:</h4>
+    <br>
+    <h3 class="text-danger col-md-6">{{educationerrormessage}}</h3><br><br>
+    <div class="form-group col-md-8">
+      <label for="graduation">Graduation Details</label>
+      <select id="graduation" name="graduation" [(ngModel)]="gradDegree" class="form-control" required>
+        <option value="null" selected disabled>Select</option>
+        <option *ngFor="let value of country_data.bachelors" value="{{value}}">{{value}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="graduationcgpa">Graduation Percentage/CGPA</label>
+      <input type="text" class="form-control" id="graduationcgpa" [(ngModel)]="gradPercent" name="graduationcgpa" placeholder="CGPA/Percentage" maxlength="2" pattern="[0-9]*" required>
+    </div>
+    <div class="form-group col-md-8">
+      <label for="postgraduation">Post Graduation Details</label>
+      <select id="postgraduation" name="postgraduation" [(ngModel)]="postGradDegree" class="form-control" required>
+        <option value="null" selected disabled>Select</option>
+        <option *ngFor="let value of country_data.masters" value="{{value}}">{{value}}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="postgraduationcgpa">Post Graduation Percentage/CGPA</label>
+      <input type="text" class="form-control" [(ngModel)]="postGradPercent" id="postgraduationcgpa" name="postgraduationcgpa" placeholder="CGPA/Percentage" maxlength="2" pattern="[0-9]*" required>
+      <br>
+     </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <button (click)="onSubmitEducationalDetails()"  class="btn btn-primary form-control">Save</button>
+    </div>
+    <div class="col">
+        <button (click)="OnUpdateEducation()"  class="btn btn-primary form-control">update</button>
+    </div>
+  </div>
+  <div class="col-lg-3"></div>
+</div>
+
+<!-- Educational Details End -->
+<br>
+<!-- Other Certifications Start-->
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="row col-lg-8">
+      <h3 class="col-md-5">Other Certifications:</h3>
+      <h3 class="text-danger col-md-6">{{certificateerrormessage}}</h3><br><br>      
+      <div class="form-group col-md-12">
+        <label for="othercertificate">Other Certifications</label>
+        <input type="text" class="form-control" [(ngModel)]="othercertifications" id="othercertificate" name="othercertificate" placeholder="Enter Other Certifications" maxlength="50" required>
+      </div>
+      <div class="form-group col-md-12">
+        <label for="keyskills">Key Skills</label>
+        <textarea rows="2" class="form-control" [(ngModel)]="keyskills" id="keyskills" name="keyskills" placeholder="Enter Key Skills" maxlength="80" required></textarea>
+     
+      </div>
+    </div>
+    <div class="col-lg-3">
+        
+    </div>  
+    <button (click)="onSubmitKeySkills()"  class="btn-primary form-control col-sm-2">Save</button>
+    <button (click)="OnUpdateKeySkills()"  class="btn-primary form-control col-sm-2">Update</button>
+
+</div>
+
+<!-- Other Certifications End -->
+<br>
+<!-- Resume Upload Starts -->
+<div class="row" style="margin-bottom:15px;">
+  <div class="col-md-3">
+    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+    <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+  </div>
+  <div class="col-md-4">
+    <span class="upload" *ngIf="progress > 0">
+      {{progress}}%
+    </span>
+    <span class="upload" *ngIf="message">
+      {{message}}
+    </span>
+  </div>
+</div>
+<!-- Resume Upload Ends -->
+<br>
+<!-- Resume Upload Starts -->
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="row col-lg-8">
+      <div class="col-sm-7"></div>
+      <button (click)="onSubmit()"  routerink= '/completed' class="col-sm-2 btn btn-primary form-control">Save</button>
+      <div class="col-sm-1"></div>
+      <button class="col-sm-2 btn btn-secondary form-control">Later</button>
+    </div>
+    <div class="col-lg-3">
+    </div>
+</div>
+
+
+<!-- Resume Upload Ends -->
+<br><br><br><br>
